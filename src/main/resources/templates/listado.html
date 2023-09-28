@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+    <head>
+        <title>PRODUCTOS</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>      
+        
+        <div class="container mt-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4" >
+                <div class="col" th:each="reg:${productos}">
+                    <div class="card">
+                        <div class="card-header"  th:text="${reg.Categoria}">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title"th:text="${reg.Precio}" ></h5>                    
+                            <img class="card-img"  alt="alt" th:src="${reg.UrlImagen}"/>
+                            <p class="card-text" th:text="${reg.Descripcion}"></p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <center>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a th:href="@{/agregar/}+${reg.Id}" class="btn btn-primary">Agregar al Carrito</button>
+                                <a th:href="@{/carrito/}+${reg.Id}" class="btn btn-danger">Comprar</a>
+                            </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </body>
+</html>
