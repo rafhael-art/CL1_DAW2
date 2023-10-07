@@ -12,7 +12,7 @@ import lombok.Data;
  */
 @Data
 public class CarritoProducto {
-    private Long Id;
+    private Long CarritoId;
     private Long ProductoId;
     private int Cantidad;
     private double PrecioTotal;
